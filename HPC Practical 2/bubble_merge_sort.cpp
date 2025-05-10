@@ -71,18 +71,22 @@ int main() {
     srand(time(0));
     for (int i = 0; i < n; i++)
         arr[i] = rand() % 10000;
+
     // Sequential Bubble Sort
     vector<int> b1 = arr;
     double start = omp_get_wtime();
     bubbleSort(b1);
     double end = omp_get_wtime();
     cout << "Sequential Bubble Sort time: " << (end - start) << " seconds\n";
+
     // Parallel Bubble Sort
     vector<int> b2 = arr;
     start = omp_get_wtime();
     parallelBubbleSort(b2);
     end = omp_get_wtime();
     cout << "Parallel Bubble Sort time: " << (end - start) << " seconds\n";
+
+    
     // Sequential Merge Sort
     vector<int> m1 = arr;
     start = omp_get_wtime();

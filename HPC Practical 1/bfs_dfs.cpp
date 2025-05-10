@@ -47,12 +47,10 @@ public:
                         cout << "Thread " << omp_get_thread_num() << " visiting " << current << endl;
                     }
                 }
-
 #pragma omp parallel for
                 for (int j = 0; j < adj[current].size(); ++j)
                 {
                     int neighbor = adj[current][j];
-
 #pragma omp critical
                     {
                         if (!visited[neighbor])
@@ -65,7 +63,6 @@ public:
             }
         }
     }
-
     void parallelDFSUtil(int v, vector<bool> &visited)
     {
 #pragma omp critical
@@ -85,7 +82,6 @@ public:
             }
         }
     }
-
     void parallelDFS(int start)
     {
         vector<bool> visited(V, false);
